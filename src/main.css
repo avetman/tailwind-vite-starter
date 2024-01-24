@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: 'Fredoka One', serif;
+      font-weight: 400;
+      src: url('../../fonts/Fredoka One/FredokaOne-Regular.woff2') format('woff2');
+    }
+
+    html {
+      @apply h-full antialiased font-body text-base text-accent bg-surface;
+    }
+  
+    model-viewer {
+      @apply h-fit aspect-square;
+    }
+    h1, h2, h3 {
+      @apply font-bold font-fredoka color-heading;
+    }
+  
+    h4, h5, p {
+      @apply font-normal font-lato;
+    }
+    h1,
+    h2 {
+      @apply font-heading font-semibold;
+    }
+  
+    p > span {
+      @apply font-mono text-lg font-semibold bg-secondary/20 text-secondary py-1 px-2 rounded;
+    }
+  }
+  @layer utilities {
+  
+      .font-fredoka {
+        font-family: 'Fredoka One', sans-serif;
+      }
+      .color-heading{
+        color:#632D93;
+      }
+      .color-heading-second{
+        color:#FA7260;
+      }
+    .color-lighter {
+      color: #B18BDC
+    }
+    .bg-lighter {
+      background-color:#B18BDC;
+    }
+    .line-through{
+      text-decoration: line-through;
+    }
+      .font-lato {
+        font-family: 'Lato', sans-serif;
+      }
+  
+  
+  }
+  @layer components {
+    .button,
+    button {
+      @apply inline-flex items-center justify-center text-center align-middle py-3 px-6 appearance-none select-none no-underline rounded-lg font-bold tracking-tight shadow-sm hover:shadow-md transition-shadow;
+    }
+  
+    .button-primary {
+      @apply button bg-contrast text-primary;
+    }
+  
+    .container-content {
+      @apply container mx-auto sm-only:mx-10 max-w-[90%] tb:max-w-[90%] md:max-w-[1280px] lg:max-w-[90%];
+    }
+    .custom-list-disc li{position:relative;;list-style-type: none}
+    .custom-list-disc li::before {
+      content: "";
+      background-color: #632D93;
+      left: -2rem;
+      top: 8px;
+      @apply  absolute xl:left-[-1em] xl:top-[12px] w-[14px] h-[14px] xl:w-[16px] xl:h-[16px]  rounded-full;
+    }
+    .card {
+      background-image: var(--gradient);
+      background-size: 500%;
+      background-position: 100%;
+      transition: background-position 3s;
+      @apply ease-wiggle;
+    }
+  
+    .card:is(:hover, :focus-within) {
+      background-position: 0;
+    }
+  }
